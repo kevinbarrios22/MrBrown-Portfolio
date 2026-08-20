@@ -11,10 +11,6 @@ export default function Services() {
           <h2 className="font-display text-[clamp(34px,5vw,64px)] uppercase leading-[0.95] tracking-[-0.01em]">
             Services
           </h2>
-          <p className="max-w-[280px] text-sm text-ink-dim">
-            Direction, production, editing and technical coordination for
-            brands, artists and platforms.
-          </p>
         </div>
       </Reveal>
 

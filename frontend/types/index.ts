@@ -31,11 +31,6 @@ export interface ProcessStep {
   description: string;
 }
 
-export interface Stat {
-  value: string;
-  label: string;
-}
-
 export interface Client {
   name: string;
   kind: string;

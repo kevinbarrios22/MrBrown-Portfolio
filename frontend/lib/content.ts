@@ -4,7 +4,6 @@ import type {
   Profile,
   Project,
   Service,
-  Stat,
 } from "@/types";
 
 export const profile: Profile = {
@@ -42,12 +41,6 @@ export const clients: Client[] = [
   { name: "VIDEO", kind: "advertising" },
   { name: "AV", kind: "music video" },
   { name: "FOX TELECOLOMBIA", kind: "video editor " },
-];
-
-export const stats: Stat[] = [
-  { value: "120+", label: "Projects delivered" },
-  { value: "35", label: "Recurring clients" },
-  { value: "4", label: "Years of experience" },
 ];
 
 export const services: Service[] = [

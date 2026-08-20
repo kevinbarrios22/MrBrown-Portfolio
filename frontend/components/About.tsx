@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 import Eyebrow from "./Eyebrow";
-import { aboutBio, aboutImage, stats } from "@/lib/content";
+import { aboutBio, aboutImage } from "@/lib/content";
 
 export default function About() {
   return (
@@ -25,18 +25,6 @@ export default function About() {
         <Reveal delay={0.1}>
           <Eyebrow>About me</Eyebrow>
           <p className="mt-6 whitespace-pre-line text-[22px] leading-[1.5] text-ink">{aboutBio}</p>
-          <div className="mt-5 grid grid-cols-3 gap-6">
-            {stats.map((stat) => (
-              <div key={stat.label}>
-                <b className="block font-display text-[44px] font-normal text-ink">
-                  {stat.value}
-                </b>
-                <span className="font-mono text-[11px] uppercase tracking-[0.08em] text-ink-dim">
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
         </Reveal>
       </div>
     </section>
