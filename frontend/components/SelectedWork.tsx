@@ -6,7 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Reveal from "./Reveal";
 import CloudinaryImage from "./CloudinaryImage";
 import ProjectVideo from "./ProjectVideo";
-import { projects } from "@/lib/mock-data";
+import { projects } from "@/lib/content";
 import type { ProjectCategory } from "@/types";
 
 type Filter = "All" | ProjectCategory;
@@ -14,9 +14,12 @@ type Filter = "All" | ProjectCategory;
 const categories: Filter[] = [
   "All",
   "Advertising",
-  "Music Video",
-  "Documentary",
   "Campaign",
+  "Documentary",
+  "Music Video",
+  "vlog",
+  "Comercial"
+
 ];
 
 export default function SelectedWork() {

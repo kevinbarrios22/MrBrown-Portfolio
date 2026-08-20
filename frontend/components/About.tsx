@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Reveal from "./Reveal";
 import Eyebrow from "./Eyebrow";
-import { aboutBio, aboutImage, stats } from "@/lib/mock-data";
+import { aboutBio, aboutImage, stats } from "@/lib/content";
 
 export default function About() {
   return (

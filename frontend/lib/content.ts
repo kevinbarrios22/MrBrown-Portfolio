@@ -5,7 +5,6 @@ import type {
   Project,
   Service,
   Stat,
-  Testimonial,
 } from "@/types";
 
 export const profile: Profile = {
@@ -122,8 +121,19 @@ export const projects: Project[] = [
     imageUrl: "https://res.cloudinary.com/ujht2bsz/video/upload/v1787252733/copy_98A0F5C1-4BD9-4D0D-BC2D-1B190E0608DD.mov",
     videoPublicId: "copy_98A0F5C1-4BD9-4D0D-BC2D-1B190E0608DD"
   },
+
   {
     id: "5",
+    slug: "hidden gen",
+    title: "hidden gen",
+    category: "vlog",
+    client: "Short series",
+    year: 2022,
+    imageUrl: "https://res.cloudinary.com/ujht2bsz/video/upload/v1787255141/1776670564136.mov",
+    videoPublicId: "1776670564136"
+  },
+  {
+    id: "6",
     slug: "black pirates",
     title: "Black pirates",
     category: "Comercial",
@@ -131,16 +141,6 @@ export const projects: Project[] = [
     year: 2022,
     imageUrl: "https://res.cloudinary.com/ujht2bsz/video/upload/v1787254770/copy_420A496F-2B27-4723-B02B-50DFB84D7B57.mov",
     videoPublicId: "copy_420A496F-2B27-4723-B02B-50DFB84D7B57"
-  },
-  {
-    id: "6",
-    slug: "",
-    title: "",
-    category: "Comercial",
-    client: "Short series",
-    year: 2022,
-    imageUrl: "https://res.cloudinary.com/ujht2bsz/video/upload/v1787255141/1776670564136.mov",
-    videoPublicId: "1776670564136"
   },
 
 ];

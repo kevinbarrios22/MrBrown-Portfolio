@@ -1,6 +1,6 @@
 "use client";
 
-import { clients } from "@/lib/mock-data";
+import { clients } from "@/lib/content";
 
 export default function ClientsMarquee() {
   const doubled = [...clients, ...clients];

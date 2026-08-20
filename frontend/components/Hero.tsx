@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Eyebrow from "./Eyebrow";
-import { heroImage, heroVideoPublicId, profile } from "@/lib/mock-data";
+import { heroImage, heroVideoPublicId, profile } from "@/lib/content";
 import { videoUrl } from "@/lib/cloudinary";
 
 export default function Hero() {

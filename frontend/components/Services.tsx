@@ -1,7 +1,7 @@
 "use client";
 
 import Reveal from "./Reveal";
-import { services } from "@/lib/mock-data";
+import { services } from "@/lib/content";
 
 export default function Services() {
   return (
@@ -12,8 +12,8 @@ export default function Services() {
             Services
           </h2>
           <p className="max-w-[280px] text-sm text-ink-dim">
-            Managed as editable blocks from the admin — added, reordered or
-            deactivated without further development.
+            Direction, production, editing and technical coordination for
+            brands, artists and platforms.
           </p>
         </div>
       </Reveal>

@@ -40,12 +40,12 @@ frontend/
 ├── components/        componentes de UI (Hero, About, SelectedWork, ...)
 ├── lib/
 │   ├── cloudinary.ts  helpers de URLs de Cloudinary (imageUrl, videoUrl, posterUrl, hlsUrl)
-│   └── mock-data.ts   contenido del portafolio (proyectos, perfil, servicios)
+│   └── content.ts   contenido del portafolio (proyectos, perfil, servicios)
 └── types/             tipos TypeScript
 ```
 
 > Todo el contenido del portafolio (textos, proyectos, videos) se edita en
-> `lib/mock-data.ts`. Las imágenes y videos se sirven desde Cloudinary.
+> `lib/content.ts`. Las imágenes y videos se sirven desde Cloudinary.
 
 ## Scripts
 

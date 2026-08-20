@@ -3,13 +3,15 @@
 import { useState } from "react";
 import type { ChangeEvent, FormEvent } from "react";
 import Eyebrow from "./Eyebrow";
-import { profile } from "@/lib/mock-data";
+import { profile } from "@/lib/content";
 
 interface FormState {
   name: string;
   email: string;
   message: string;
 }
+
+type SubmitStatus = "idle" | "sending" | "sent" | "error";
 
 const initialForm: FormState = { name: "", email: "", message: "" };
 
@@ -18,6 +20,7 @@ const inputClasses =
 
 export default function ContactFooter() {
   const [form, setForm] = useState<FormState>(initialForm);
+  const [status, setStatus] = useState<SubmitStatus>("idle");
 
   const handleChange =
     (field: keyof FormState) =>
@@ -25,10 +28,27 @@ export default function ContactFooter() {
       setForm((prev) => ({ ...prev, [field]: e.target.value }));
     };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Contact form payload:", form);
-    setForm(initialForm);
+    setStatus("sending");
+
+    try {
+      const res = await fetch(
+        process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT as string,
+        {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: JSON.stringify(form),
+        }
+      );
+
+      if (!res.ok) throw new Error("Request failed");
+
+      setStatus("sent");
+      setForm(initialForm);
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -84,10 +104,20 @@ export default function ContactFooter() {
 
           <button
             type="submit"
-            className="mt-2.5 cursor-pointer rounded-full bg-amber px-8 py-4 font-mono text-xs font-bold uppercase tracking-[0.08em] text-bg transition-opacity duration-200 hover:opacity-90"
+            disabled={status === "sending"}
+            className="mt-2.5 cursor-pointer rounded-full bg-amber px-8 py-4 font-mono text-xs font-bold uppercase tracking-[0.08em] text-bg transition-opacity duration-200 hover:opacity-90 disabled:cursor-not-allowed disabled:opacity-60"
           >
-            Send message
+            {status === "sending"
+              ? "Sending..."
+              : status === "sent"
+                ? "Message sent ✓"
+                : "Send message"}
           </button>
+          {status === "error" && (
+            <p className="mt-3 font-mono text-xs text-red-500">
+              Something went wrong. Please try again or email me directly.
+            </p>
+          )}
         </form>
 
         <div className="font-mono text-[13px] text-ink-dim">

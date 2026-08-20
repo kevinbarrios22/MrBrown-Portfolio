@@ -1,7 +1,7 @@
 "use client";
 
 import Reveal from "./Reveal";
-import { processSteps } from "@/lib/mock-data";
+import { processSteps } from "@/lib/content";
 
 export default function Process() {
   return (

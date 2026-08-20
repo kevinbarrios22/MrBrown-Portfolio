@@ -3,7 +3,8 @@ export type ProjectCategory =
   | "Music Video"
   | "Documentary"
   | "Campaign"
-    |"Comercial";
+  |"Comercial"
+  |"vlog";
 
 export interface Project {
   id: string;
@@ -28,13 +29,6 @@ export interface ProcessStep {
   number: string;
   title: string;
   description: string;
-}
-
-export interface Testimonial {
-  id: string;
-  quote: string;
-  name: string;
-  role: string;
 }
 
 export interface Stat {
