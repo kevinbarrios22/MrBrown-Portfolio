@@ -1,85 +1,86 @@
-# Documentación de la App — MrBrown Portfolio
+# MrBrown Portfolio — App Docs
 
-Portafolio de productor audiovisual. Aplicación web de una sola página (SPA) de
-contenido gestionado por datos locales + medios alojados en Cloudinary.
-
----
-
-## 1. Descripción general
-
-| Dato             | Valor                                    |
-|------------------|------------------------------------------|
-| Nombre           | MrBrown Portfolio                        |
-| Tipo             | Frontend estático (SSG + cliente)        |
-| Framework        | Next.js 16.3 (App Router, Turbopack)     |
-| Lenguaje         | TypeScript 5                             |
-| UI               | React 19 + Tailwind CSS v4               |
-| Animaciones      | framer-motion                            |
-| Alojamiento de medios | Cloudinary (imágenes + videos)       |
-| Formulario       | Formspree (POST directo)                 |
-
-El sitio es **estático**: no hay backend, ni base de datos, ni API propia.
-Todo el texto se edita en `lib/content.ts` y todo el contenido multimedia se
-sirve desde Cloudinary mediante URLs transformadas.
+A one-page portfolio site for an audiovisual producer. Everything runs on the
+frontend: the copy lives in a single TypeScript file, and the images/videos
+are served from Cloudinary. There's no backend, no database, nothing to break.
 
 ---
 
-## 2. Estructura del proyecto
+## 1. What this is
+
+| | |
+|---|---|
+| App | MrBrown Portfolio |
+| Type | Static frontend (Next.js SSG + client components) |
+| Framework | Next.js 16.3 (App Router, Turbopack) |
+| Language | TypeScript 5 |
+| UI | React 19 + Tailwind CSS v4 |
+| Animations | framer-motion |
+| Media hosting | Cloudinary (images + videos) |
+| Contact form | Formspree (plain POST) |
+
+The whole site is static. All the text is edited in `lib/content.ts` and every
+asset comes from Cloudinary as a transformed URL. This makes it dead simple to
+host anywhere and keeps maintenance to almost zero.
+
+---
+
+## 2. Project layout
 
 ```
 MrBrown-Portfolio/
 └── frontend/
-    ├── app/                        # App Router de Next.js
-    │   ├── layout.tsx              # Layout raíz, fuentes, metadata
-    │   ├── page.tsx                # Página principal (una sola página)
-    │   ├── globals.css             # Estilos globales y tema Tailwind
+    ├── app/                        # Next.js App Router
+    │   ├── layout.tsx              # Root layout: fonts, metadata, theme
+    │   ├── page.tsx                # Single page — order of sections
+    │   ├── globals.css             # Global styles / Tailwind theme
     │   └── favicon.ico
-    ├── components/                 # Componentes de UI
-    │   ├── Navbar.tsx              # Barra de navegación fija
-    │   ├── Hero.tsx                # Hero con video de fondo
-    │   ├── ClientsMarquee.tsx      # Marquee de clientes
-    │   ├── About.tsx               # Sección "About me"
-    │   ├── Services.tsx            # Sección de servicios
-    │   ├── SelectedWork.tsx        # Grid de proyectos (filtros + videos)
-    │   ├── Process.tsx             # Proceso de trabajo
-    │   ├── ContactFooter.tsx       # Formulario de contacto + pie
-    │   ├── Eyebrow.tsx             # Etiqueta pequeña decorativa
-    │   ├── Reveal.tsx              # Animación al hacer scroll
-    │   ├── CloudinaryImage.tsx     # Imagen optimizada desde Cloudinary
-    │   ├── CloudinaryVideo.tsx     # Reproductor de video Cloudinary
-    │   └── ProjectVideo.tsx        # Video del grid (reproduce al hover)
+    ├── components/                 # UI components
+    │   ├── Navbar.tsx              # Fixed top nav
+    │   ├── Hero.tsx                # Hero with background video
+    │   ├── ClientsMarquee.tsx      # Scrolling client logos
+    │   ├── About.tsx               # "About me" section
+    │   ├── Services.tsx            # Services list
+    │   ├── SelectedWork.tsx        # Project grid (filters + videos)
+    │   ├── Process.tsx             # Work process steps
+    │   ├── ContactFooter.tsx       # Contact form + footer
+    │   ├── Eyebrow.tsx             # Small label/eyebrow element
+    │   ├── Reveal.tsx              # Scroll-reveal animation wrapper
+    │   ├── CloudinaryImage.tsx     # Optimized Cloudinary image
+    │   └── ProjectVideo.tsx        # Grid video (plays on hover)
     ├── lib/
-    │   ├── content.ts              # ★ TODO el contenido editable
-    │   └── cloudinary.ts           # Helpers de URLs de Cloudinary
+    │   ├── content.ts              # ★ ALL editable content lives here
+    │   └── cloudinary.ts           # Cloudinary URL helpers
     ├── types/
-    │   └── index.ts                # Tipos TypeScript (Project, Service, ...)
-    └── public/                     # Assets estáticos
+    │   └── index.ts                # TypeScript types (Project, Service, ...)
+    └── public/                     # Static assets
 ```
 
 ---
 
-## 3. Secciones de la página
+## 3. Page sections
 
-| Sección          | Componente          | Dato que consume                    |
-|------------------|---------------------|-------------------------------------|
-| Navbar           | `Navbar.tsx`        | `profile.name` (iniciales)          |
-| Hero             | `Hero.tsx`          | `profile`, `heroVideoPublicId`      |
-| Clientes         | `ClientsMarquee.tsx`| `clients`                           |
-| About            | `About.tsx`         | `aboutImage`, `aboutBio`, `stats`   |
-| Servicios        | `Services.tsx`      | `services`                          |
-| Trabajo          | `SelectedWork.tsx`  | `projects` (filtro por categoría)   |
-| Proceso          | `Process.tsx`       | `processSteps`                      |
-| Contacto         | `ContactFooter.tsx` | `profile`, formulario → Formspree   |
+| Section | Component | Data it uses |
+|---|---|---|
+| Navbar | `Navbar.tsx` | `profile.name` (initials) |
+| Hero | `Hero.tsx` | `profile`, `heroVideoPublicId` |
+| Clients | `ClientsMarquee.tsx` | `clients` |
+| About | `About.tsx` | `aboutImage`, `aboutBio`, `stats` |
+| Services | `Services.tsx` | `services` |
+| Work | `SelectedWork.tsx` | `projects` (category filter) |
+| Process | `Process.tsx` | `processSteps` |
+| Contact | `ContactFooter.tsx` | `profile`, form → Formspree |
 
-El orden de las secciones se define en `app/page.tsx`.
+The order of the sections is defined in `app/page.tsx`. To move a section up
+or down, just reorder the components there.
 
 ---
 
-## 4. Cómo editar el contenido
+## 4. Editing the content
 
-> **Todo el contenido se edita en `frontend/lib/content.ts`.**
+> Everything you'd normally put in a CMS lives in `frontend/lib/content.ts`.
 
-### 4.1 Perfil y textos generales
+### 4.1 Profile and general copy
 
 ```ts
 export const profile: Profile = {
@@ -97,26 +98,27 @@ export const profile: Profile = {
 };
 ```
 
-### 4.2 Video del Hero
+### 4.2 Hero background video
 
 ```ts
 export const heroImage = "https://res.cloudinary.com/.../video.mov";
 export const heroVideoPublicId = "copy_70187F36-A565-461B-B47B-B23B25834C01";
 ```
 
-El video del fondo se toma del `publicId` (sin extensión). Si se borra
-`heroVideoPublicId`, el Hero vuelve a usar `heroImage` como imagen.
+The hero uses `heroVideoPublicId` (no file extension). If you remove it, the
+hero falls back to `heroImage` as a plain image.
 
-### 4.3 About me
+### 4.3 About section
 
 ```ts
-export const aboutImage = "https://res.cloudinary.com/.../foto.jpg";
-export const aboutBio = "Texto... \n\n Salto de línea entre párrafos.";
+export const aboutImage = "https://res.cloudinary.com/.../photo.jpg";
+export const aboutBio = "Some text. \n\n New paragraph after the blank line.";
 ```
 
-> Para un salto de línea usa `\n\n`. Los párrafos se separan con líneas vacías.
+Use `\n\n` to separate paragraphs — the About component renders them as line
+breaks (`whitespace-pre-line`).
 
-### 4.4 Proyectos (Work Selected)
+### 4.4 Projects (Work Selected)
 
 ```ts
 export const projects: Project[] = [
@@ -124,30 +126,32 @@ export const projects: Project[] = [
     id: "1",
     slug: "new-era",
     title: "NEW ERA",
-    category: "Advertising",          // Advertising | Music Video | Documentary | Campaign | Comercial
+    category: "Advertising",   // Advertising | Music Video | Documentary | Campaign | Comercial
     client: "DR. JUICE",
     year: 2026,
-    imageUrl: "https://res.cloudinary.com/.../video.mov",  // URL completa (fallback)
-    videoPublicId: "copy_714ED858-...",  // publicId del video (reproduce al hover)
+    imageUrl: "https://res.cloudinary.com/.../video.mov",  // full URL, used as fallback
+    videoPublicId: "copy_714ED858-...",  // video plays on hover
   },
 ];
 ```
 
-- **`videoPublicId`** — si existe, el proyecto muestra el video (se reproduce al
-  pasar el mouse) con poster generado desde el propio video.
-- **`publicId`** — si existe (y no hay video), muestra la imagen optimizada.
-- Si no hay ninguno, usa `imageUrl` como fallback.
+Quick rules:
+- **`videoPublicId`** — present means the project shows a video (plays on
+  hover, poster generated from the video itself).
+- **`publicId`** — present (and no video) means an optimized image is shown.
+- **`imageUrl`** — only used as a last-resort fallback.
 
-### 4.5 Servicios, proceso y clientes
+### 4.5 Services, process steps and clients
 
-Los arrays `services`, `processSteps` y `clients` se editan igual: agregar,
-quitar o reordenar objetos. La UI los renderiza en el orden del array.
+`services`, `processSteps` and `clients` are plain arrays — add, remove or
+reorder objects and the UI follows the array order. That's the whole "admin
+panel", basically.
 
 ---
 
 ## 5. Cloudinary
 
-### 5.1 Variables de entorno (`.env.local`)
+### 5.1 Environment variables (`.env.local`)
 
 ```
 NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME="ujht2bsz"
@@ -156,33 +160,34 @@ CLOUDINARY_API_SECRET="tu_api_secret"
 NEXT_PUBLIC_FORMSPREE_ENDPOINT="https://formspree.io/f/TU_FORM_ID"
 ```
 
-> `CLOUDINARY_API_SECRET` solo se usa en el servidor (nunca se expone al
-> navegador). El resto se expone vía `NEXT_PUBLIC_*`.
+`CLOUDINARY_API_SECRET` is server-only (never shipped to the browser). The
+`NEXT_PUBLIC_*` ones are safe to expose — they're baked into the client bundle.
 
-### 5.2 Helpers (`lib/cloudinary.ts`)
+### 5.2 URL helpers (`lib/cloudinary.ts`)
 
-| Función        | Descripción                                            |
-|----------------|--------------------------------------------------------|
-| `imageUrl()`   | URL de imagen optimizada (format/quality automático)   |
-| `videoUrl()`   | URL de video en **MP4** (compatible con navegadores)   |
-| `posterUrl()`  | Poster extraído del video (`so_N.0,pg_1`)              |
-| `hlsUrl()`     | URL de streaming adaptativo HLS (`sp_auto`)            |
+| Function | What it does |
+|---|---|
+| `imageUrl()` | Optimized image URL (auto format + quality) |
+| `videoUrl()` | **MP4** video URL (plays everywhere) |
+| `posterUrl()` | Poster frame pulled from the video (`so_N.0,pg_1`) |
+| `hlsUrl()` | Adaptive HLS streaming URL (`sp_auto`) |
 
-> Importante: `videoUrl()` fuerza `format: "mp4"`. Con `format: "auto"`
-> Cloudinary puede devolver HLS (`.m3u8`) que el `<video>` nativo no reproduce.
+One gotcha that's cost me time before: `videoUrl()` forces `format: "mp4"`.
+With `format: "auto"` Cloudinary sometimes returns HLS (`.m3u8`), and a plain
+`<video>` tag won't play that.
 
-### 5.3 Componentes
+### 5.3 Components
 
-- `CloudinaryImage` — imagen optimizada (`<CldImage>`).
-- `CloudinaryVideo` — reproductor con controles (`<CldVideoPlayer>`).
-- `ProjectVideo` — video del grid, reproduce al hacer hover, con poster.
+- `CloudinaryImage` — optimized image via `<CldImage>`.
+- `ProjectVideo` — grid video, plays on hover, with poster.
+- (There used to be a `CloudinaryVideo` player component, but nothing used it,
+  so it's gone.)
 
 ---
 
-## 6. Formulario de contacto
+## 6. Contact form
 
-`ContactFooter.tsx` envía los datos del formulario por **POST** al endpoint de
-Formspree:
+`ContactFooter.tsx` POSTs the form to a Formspree endpoint:
 
 ```ts
 const res = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT, {
@@ -192,17 +197,19 @@ const res = await fetch(process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT, {
 });
 ```
 
-Estados de la UI: `idle` → `sending` → `sent` | `error`.
+The button cycles through `idle → sending → sent`, and shows an error message
+if the request fails.
 
-**Configuración (una vez):**
-1. Crear un formulario gratis en https://formspree.io
-2. Copiar el endpoint (`https://formspree.io/f/xxxx`)
-3. Ponerlo en `NEXT_PUBLIC_FORMSPREE_ENDPOINT` de `.env.local`
-4. En el panel de Formspree, habilitar notificaciones por email a tu correo
+**One-time setup:**
+1. Create a free form at https://formspree.io
+2. Copy your endpoint (`https://formspree.io/f/xxxx`)
+3. Put it in `NEXT_PUBLIC_FORMSPREE_ENDPOINT` in `.env.local`
+4. In the Formspree dashboard, turn on email notifications so messages reach
+   your inbox
 
 ---
 
-## 7. Desarrollo
+## 7. Local development
 
 ```bash
 cd frontend
@@ -210,39 +217,38 @@ npm install
 npm run dev        # http://localhost:3000
 ```
 
-| Script           | Comando          | Descripción                     |
-|------------------|------------------|---------------------------------|
-| Desarrollo       | `npm run dev`    | Servidor con hot reload         |
-| Build producción | `npm run build`  | Compila y optimiza              |
-| Ejecutar build   | `npm start`      | Sirve el build en producción    |
-| Lint             | `npm run lint`   | ESLint                          |
-| Typecheck        | `npx tsc --noEmit` | Verifica tipos TypeScript     |
+| Script | Command | What it does |
+|---|---|---|
+| Dev server | `npm run dev` | Hot reload, ready in a second |
+| Production build | `npm run build` | Compiles and optimizes |
+| Serve build | `npm start` | Runs the production build |
+| Lint | `npm run lint` | ESLint |
+| Typecheck | `npx tsc --noEmit` | TypeScript check |
 
 ---
 
-## 8. Despliegue
+## 8. Deploying
 
-El sitio es estático y compatible con Vercel, Netlify o Cloudflare Pages.
+The site is static, so Vercel, Netlify or Cloudflare Pages all work fine.
 
-### En Vercel (recomendado)
+### Vercel (easiest)
 
-1. Importar el repo `kevinbarrios22/MrBrown-Portfolio`.
+1. Import the repo `kevinbarrios22/MrBrown-Portfolio`.
 2. Framework preset: **Next.js**. Build command: `npm run build`.
-3. Configurar las **Environment Variables** (mismas que `.env.local`):
+3. Add the environment variables (same as `.env.local`):
    - `NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME`
    - `NEXT_PUBLIC_CLOUDINARY_API_KEY`
    - `CLOUDINARY_API_SECRET`
    - `NEXT_PUBLIC_FORMSPREE_ENDPOINT`
-4. Deploy.
+4. Hit deploy.
 
 ---
 
-## 9. Troubleshooting
+## 9. Common issues
 
-| Problema                              | Causa                              | Solución                                  |
-|---------------------------------------|------------------------------------|-------------------------------------------|
-| El video no reproduce                 | URL con `format: auto` (HLS)       | Usar `videoUrl()` que fuerza MP4          |
-| El video no arranca al hacer hover    | Overlay bloqueando eventos         | Los overlays tienen `pointer-events-none` |
-| Imagen no carga (Resource not found)  | `publicId` ya no existe            | Verificar en la Media Library de Cloudinary |
-| El formulario no envía                 | Falta endpoint de Formspree        | Configurar `NEXT_PUBLIC_FORMSPREE_ENDPOINT` |
-| Build falla en Maven                  | JAVA_HOME apunta a JDK 26          | (backend eliminado — ya no aplica)        |
+| Symptom | Cause | Fix |
+|---|---|---|
+| Video won't play | URL uses `format: auto` (HLS) | Use `videoUrl()` which forces MP4 |
+| Video doesn't start on hover | Overlay is catching mouse events | Overlays use `pointer-events-none` |
+| Image says "Resource not found" | The `publicId` was deleted | Check your Cloudinary Media Library |
+| Contact form does nothing | No Formspree endpoint set | Set `NEXT_PUBLIC_FORMSPREE_ENDPOINT` |
