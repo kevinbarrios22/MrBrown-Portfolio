@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colores */
+  --color-bg: #0b0b0c;
+  --color-bg-alt: #111113;
+  --color-card: #16161a;
+  --color-line: #232327;
+  --color-ink: #f4f2ec;
+  --color-ink-dim: #9b9b9f;
+  --color-amber: #f2a01e;
+  --color-amber-dim: #6b5326;
+
+  /* Tipografía */
+  --font-display: var(--font-anton), sans-serif;
+  --font-accent: var(--font-caveat), cursive;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), monospace;
+
+  /* Animaciones */
+  --animate-marquee: marquee 26s linear infinite;
+  --animate-pulse-dot: pulse-dot 2s infinite;
+  --animate-scroll-cue: scroll-cue 1.6s infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes pulse-dot {
+    0% {
+      box-shadow: 0 0 0 0 rgba(62, 224, 107, 0.55);
+    }
+    70% {
+      box-shadow: 0 0 0 8px rgba(62, 224, 107, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(62, 224, 107, 0);
+    }
+  }
+
+  @keyframes scroll-cue {
+    0% {
+      transform: scaleY(0);
+      transform-origin: top;
+    }
+    50% {
+      transform: scaleY(1);
+      transform-origin: top;
+    }
+    51% {
+      transform: scaleY(1);
+      transform-origin: bottom;
+    }
+    100% {
+      transform: scaleY(0);
+      transform-origin: bottom;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+::selection {
+  background-color: var(--color-amber);
+  color: #0b0b0c;
+}

@@ -1,0 +1,27 @@
+# Frontend Next.js
+node_modules/
+.next/
+out/
+dist/
+build/
+*.tsbuildinfo
+
+# Entorno (nunca commitear secretos)
+.env
+.env.*
+!.env.example
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.settings/
+.classpath
+.project
+.factorypath
+
+# Sistema
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
