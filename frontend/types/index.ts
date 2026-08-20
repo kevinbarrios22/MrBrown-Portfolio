@@ -3,8 +3,8 @@ export type ProjectCategory =
   | "Music Video"
   | "Documentary"
   | "Campaign"
-  |"Comercial"
-  |"vlog";
+  | "Comercial"
+  | "vlog";
 
 export interface Project {
   id: string;

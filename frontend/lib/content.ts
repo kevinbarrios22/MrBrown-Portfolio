@@ -31,16 +31,17 @@ export const aboutImage =
   "https://res.cloudinary.com/ujht2bsz/image/upload/v1787254421/C71CAB1C-3FC6-4596-9677-1786200A74CA.jpg";
 
 export const aboutBio =
-  "I am an audivisual media profesional with experiences across production, post-production, broadcast workflows and operational cordination.\n\n" +
+  "I am an audiovisual media profesional with experiences across production, post-production, broadcast workflows and operational cordination.\n\n" +
     "My profesional background includes working with audivisual content throughout different stages of the production process, from footage collection ande media ingest to post-production coordination, mastering and delivery. \n\n" +
     "I worked alongside production, editing, mastering and sound teams, coordinating audivisual assets and supporting the workflows required to keep projects moving efficiently. \n\n  ";
 
 export const clients: Client[] = [
-  { name: "WOM", kind: "campaign" },
-  { name: "DR.JUICE", kind: "advertising" },
-  { name: "VIDEO", kind: "advertising" },
-  { name: "AV", kind: "music video" },
-  { name: "FOX TELECOLOMBIA", kind: "video editor " },
+  { name: "WOM", kind: "Campaign" },
+  { name: "DR.JUICE", kind: "Advertising" },
+  { name: "POST-PRODUCTION", kind:"" },
+  { name: "AV / TECH", kind: "" },
+  { name: "FOX TELECOLOMBIA", kind: "Video editor " },
+  { name: "BROADCAST", kind: "Workflows" },
 ];
 
 export const services: Service[] = [

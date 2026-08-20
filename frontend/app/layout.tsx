@@ -27,7 +27,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Yash Sharma — Portafolio Audiovisual",
+  title: "Dylan— Portafolio Audiovisual",
   description:
     "Portafolio de producción y dirección audiovisual: proyectos, servicios y contacto.",
 };

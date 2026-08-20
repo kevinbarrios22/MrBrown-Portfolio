@@ -58,7 +58,7 @@ export default function ContactFooter() {
     >
       <Eyebrow>Contact</Eyebrow>
       <h2 className="mt-5 max-w-[900px] font-display text-[clamp(36px,7vw,96px)] uppercase leading-[0.92] tracking-[-0.01em]">
-        LET'S CREATE SOMETHING POWERFUL{" "}
+        LET&apos;S CREATE SOMETHING POWERFUL{" "}
       </h2>
 
       <div className="mt-[70px] grid gap-[60px] md:grid-cols-2">

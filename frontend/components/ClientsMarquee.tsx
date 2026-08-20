@@ -13,7 +13,13 @@ export default function ClientsMarquee() {
             key={`${client.name}-${index}`}
             className="mx-[34px] whitespace-nowrap font-mono text-sm tracking-[0.05em] text-ink-dim"
           >
-            <b className="font-bold text-ink">{client.name}</b> — {client.kind}
+            <b className="font-bold text-ink">{client.name}</b>
+            {client.kind && (
+              <>
+                {" "}
+                — {client.kind}
+              </>
+            )}
           </span>
         ))}
       </div>
