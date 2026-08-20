@@ -110,7 +110,7 @@ export const projects: Project[] = [
     slug: "desde tus ojos",
     title: "Desde tus ojos",
     category: "Music Video",
-    client: "Short series",
+    client: "CONGO FILMS",
     year: 2021,
     imageUrl: "https://res.cloudinary.com/ujht2bsz/video/upload/v1787252733/copy_98A0F5C1-4BD9-4D0D-BC2D-1B190E0608DD.mov",
     videoPublicId: "copy_98A0F5C1-4BD9-4D0D-BC2D-1B190E0608DD"
@@ -121,8 +121,8 @@ export const projects: Project[] = [
     slug: "hidden gen",
     title: "hidden gen",
     category: "vlog",
-    client: "Short series",
-    year: 2022,
+    client: "FRANK",
+    year: 2024,
     imageUrl: "https://res.cloudinary.com/ujht2bsz/video/upload/v1787255141/1776670564136.mov",
     videoPublicId: "1776670564136"
   },
@@ -131,8 +131,8 @@ export const projects: Project[] = [
     slug: "black pirates",
     title: "Black pirates",
     category: "Comercial",
-    client: "Short series",
-    year: 2022,
+    client: "CARACOL TV ",
+    year: 2021,
     imageUrl: "https://res.cloudinary.com/ujht2bsz/video/upload/v1787254770/copy_420A496F-2B27-4723-B02B-50DFB84D7B57.mov",
     videoPublicId: "copy_420A496F-2B27-4723-B02B-50DFB84D7B57"
   },
