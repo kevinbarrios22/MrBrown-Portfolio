@@ -27,9 +27,9 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dylan— Portafolio Audiovisual",
+  title: "Dylan — Audiovisual Portfolio",
   description:
-    "Portafolio de producción y dirección audiovisual: proyectos, servicios y contacto.",
+    "Audiovisual production and direction portfolio: projects, services and contact.",
 };
 
 export default function RootLayout({
