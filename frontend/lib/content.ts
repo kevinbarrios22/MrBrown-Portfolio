@@ -31,9 +31,9 @@ export const aboutImage =
   "https://res.cloudinary.com/ujht2bsz/image/upload/v1787254421/C71CAB1C-3FC6-4596-9677-1786200A74CA.jpg";
 
 export const aboutBio =
-  "I am an audiovisual media profesional with experiences across production, post-production, broadcast workflows and operational cordination.\n\n" +
-    "My profesional background includes working with audivisual content throughout different stages of the production process, from footage collection ande media ingest to post-production coordination, mastering and delivery. \n\n" +
-    "I worked alongside production, editing, mastering and sound teams, coordinating audivisual assets and supporting the workflows required to keep projects moving efficiently. \n\n  ";
+  "I am an audiovisual media profesional with experiences across production, post-production, broadcast workflows and operational coordination.\n\n" +
+    "My profesional background includes working with audiovisual content throughout different stages of the production process, from footage collection and media ingest to post-production coordination, mastering and delivery. \n\n" +
+    "I worked alongside production, editing, mastering and sound teams, coordinating audiovisual assets and supporting the workflows required to keep projects moving efficiently. \n\n  ";
 
 export const clients: Client[] = [
   { name: "WOM", kind: "Campaign" },
@@ -130,7 +130,7 @@ export const projects: Project[] = [
     id: "6",
     slug: "black pirates",
     title: "Black pirates",
-    category: "Comercial",
+    category: "Commercial",
     client: "CARACOL TV ",
     year: 2021,
     imageUrl: "https://res.cloudinary.com/ujht2bsz/video/upload/v1787254770/copy_420A496F-2B27-4723-B02B-50DFB84D7B57.mov",

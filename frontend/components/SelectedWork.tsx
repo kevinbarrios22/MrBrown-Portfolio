@@ -18,7 +18,7 @@ const categories: Filter[] = [
   "Documentary",
   "Music Video",
   "vlog",
-  "Comercial"
+  "Commercial"
 
 ];
 

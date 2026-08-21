@@ -3,7 +3,7 @@ export type ProjectCategory =
   | "Music Video"
   | "Documentary"
   | "Campaign"
-  | "Comercial"
+  | "Commercial"
   | "vlog";
 
 export interface Project {
